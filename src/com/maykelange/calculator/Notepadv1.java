@@ -16,7 +16,8 @@
 
 package com.maykelange.calculator;
 
-import com.android.demo.notepad1.R;
+
+import com.maykelange.calculator.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -36,7 +37,8 @@ public class Notepadv1 extends Activity {
         setContentView(R.layout.calc_layout);
         s = new State();
         
-        int[] opNumbers = new int[] { R.id.Button_0,
+        int[] opNumbers = new int[] { 
+        		R.id.Button_0,
         		R.id.Button_1,
         		R.id.Button_2,
         		R.id.Button_3,
@@ -55,15 +57,17 @@ public class Notepadv1 extends Activity {
         }
         
 		int[] opButtons = new int[] { R.id.Button_plus, R.id.Button_minus,
-				R.id.Button_multiply, R.id.Button_divide ,R.id.Button_equals};
+				R.id.Button_multiply, R.id.Button_divide };
 		State.Operation[] states = new State.Operation[] {
 				State.Operation.PLUS, State.Operation.MINUS,
-				State.Operation.MULTIPLY, State.Operation.DIVIDE,State.Operation.NONE };
+				State.Operation.MULTIPLY, State.Operation.DIVIDE};
 		
 		for(int i = 0; i < opButtons.length;i++){
 			Button b_op = (Button) findViewById(opButtons[i]);
 			b_op.setOnClickListener(new OperationClickEvent(textView, s, states[i]));
 		}
+		Button b_eq = (Button) findViewById(R.id.Button_equals);
+		b_eq.setOnClickListener(new EqualClickEvent(textView, s));
 		
 		Button b_op = (Button) findViewById(R.id.Button_ac);
 		b_op.setOnClickListener(new OnClickListener() {
@@ -73,6 +77,7 @@ public class Notepadv1 extends Activity {
 			}
 		});
         
+		textView.setText(s.getDisplay());
     }
 
 }
