@@ -3,7 +3,6 @@ package com.maykelange.calculator;
 public class State {
 	
 	public enum Operation {
-		NONE,
 		PLUS,
 		MINUS,
 		MULTIPLY,
@@ -11,106 +10,100 @@ public class State {
 	}
 	
 	public enum IOState{
-		INPUT_CURRENT,
-		INPUT_ACCU,
+		INPUTTING,
 		DISPLAY_RESULT,
 	}
-	private double accu = 0;
+	private Double accu = null;
 	private double current = 0;
-	private boolean inputted = false;
 	
-	private int negPowTen;
-	
-	private Operation currentOp = Operation.NONE;
-	private IOState currentState  = IOState.INPUT_ACCU;
-	
+	private Operation currentOp = null;
+	private IOState currentState = IOState.INPUTTING;
 	
 	public Operation getCurrentOp() {
 		return currentOp;
 	}
 	public void setCurrentOp(Operation currentOp) {
-		if(!inputted){
-			return;
-		}
-		if(this.currentOp != Operation.NONE){
+
+		if (accu != null && this.currentOp != null ){
 			calculateResult();
+		}else{
+			accu = Double.valueOf(current);
+			current = 0;
 		}
 		this.currentOp = currentOp;
-		currentState = IOState.DISPLAY_RESULT;
-		inputted = false;
+		
+		if (currentState == IOState.INPUTTING){
+			currentState = IOState.DISPLAY_RESULT;
+		}
 	}
 
 	private void calculateResult() {
+		double res = accu.doubleValue();
 		switch (currentOp) {
 			case PLUS:
-				accu+=current;
+				res += current;
 				break;
 			case MINUS:
-				accu-=current;
+				res -= current;
 				break;
 			case MULTIPLY:
-				accu*=current;
+				res *= current;
 				break;
 			case DIVIDE:
-				accu/=current;
-				break;
-			default:
+				res /= current;
 				break;
 		}
-		
-		if(currentState == IOState.INPUT_CURRENT ){
-			currentState = IOState.DISPLAY_RESULT;
-		}
-		
+		accu = Double.valueOf(res);
 		current = 0;
-
 	}
 	
 	
 	public void number(int number) {
-		if(currentState == IOState.DISPLAY_RESULT){
-			clear();
-		}
-		inputted = true;
-		double num;
-		
-		if(currentState == IOState.INPUT_ACCU){
-			num = accu;
-		}else{
-			num = current;
-		}
-		
-		num*=10;
-		num+=number;
-		
-		if(currentState == IOState.INPUT_ACCU){
-			accu = num;
-		}else{
-			currentState = IOState.INPUT_CURRENT;
-			current = num;
+		if (currentState == IOState.INPUTTING){
+			current = current *10 + number;
+		}else if(currentState == IOState.DISPLAY_RESULT){
+			currentState = IOState.INPUTTING;
+			current = number;
 		}
 	}
 	public String getDisplay() {
-		String res = String.valueOf(current);
-		if(currentState == IOState.DISPLAY_RESULT || currentState == IOState.INPUT_ACCU){
-			res = String.valueOf(accu);
+		String res;
+		Double d = getCurrentDisplayValue();
+		double doubleValue = d.doubleValue();
+		int intVal = (int)doubleValue;
+		if (intVal == doubleValue){
+			res = Integer.toString(intVal);
+			
+		}else{
+			res = d.toString();
 		}
-		
-		res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + res;
+//		String res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + d;
 		
 		return res;
 	}
+	private Double getCurrentDisplayValue() {
+		Double d = accu;
+		if (currentState == IOState.INPUTTING){
+			d = Double.valueOf(current);
+		}
+		return d;
+	}
 	public void clear() {
-		accu = 0;
+		accu = null;
+		currentState = IOState.INPUTTING;
+		currentOp = null;
 		current = 0;
-		currentOp = Operation.NONE;
-		currentState = IOState.INPUT_ACCU;
 		
 	}
 	public void equal() {
+		if (accu == null || currentOp == null){
+			return;
+		}
 		calculateResult();
-		currentOp = Operation.NONE;
-		currentState= IOState.DISPLAY_RESULT;
+		currentState = IOState.DISPLAY_RESULT;
+		currentOp = null;
+		current = getCurrentDisplayValue();
+		
 	}
 
 }

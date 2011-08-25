@@ -1,7 +1,5 @@
 package com.maykelange.calculator;
 
-import com.maykelange.calculator.State.Operation;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -9,7 +7,6 @@ import android.widget.TextView;
 final class EqualClickEvent implements OnClickListener {
 	private State s;
 	private TextView textView;
-	private Operation op;
 
 
 	public EqualClickEvent(TextView textView, State s) {

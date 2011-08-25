@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Notepad v1</string>
-    <string name="no_notes">No Notes Yet</string>
-    <string name="menu_insert">Add Item</string>
-    
-<string name="Button_1">1</string>
-<string name="Button_2">2</string>
-<string name="Button_3">3</string>
-<string name="Button_4">4</string>
-<string name="Button_5">5</string>
-<string name="Button_6">6</string>
-<string name="Button_7">7</string>
-<string name="Button_8">8</string>
-<string name="Button_9">9</string>
-<string name="Button_0">0</string>
-<string name="Button_plus">+</string>
-<string name="Button_minus">-</string>
-<string name="Button_equals">=</string>
-<string name="Button_multiply">*</string>
-<string name="Button_divide">/</string>
-<string name="Button_decimal">.</string>
-<string name="Button_m">m</string>
-<string name="Button_mc">mc</string>
-<string name="Button_ac">ac</string>
-<string name="Button_c">c</string>
+	<string name="app_name">MayCal</string>
+
+	<string name="Button_1">1</string>
+	<string name="Button_2">2</string>
+	<string name="Button_3">3</string>
+	<string name="Button_4">4</string>
+	<string name="Button_5">5</string>
+	<string name="Button_6">6</string>
+	<string name="Button_7">7</string>
+	<string name="Button_8">8</string>
+	<string name="Button_9">9</string>
+	<string name="Button_0">0</string>
+	<string name="Button_plus">+</string>
+	<string name="Button_minus">-</string>
+	<string name="Button_equals">=</string>
+	<string name="Button_multiply">*</string>
+	<string name="Button_divide">/</string>
+	<string name="Button_decimal">.</string>
+	<string name="Button_m">m</string>
+	<string name="Button_mc">mc</string>
+	<string name="Button_ac">ac</string>
+	<string name="Button_c">c</string>
 </resources>

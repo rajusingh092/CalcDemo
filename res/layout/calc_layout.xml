@@ -4,42 +4,45 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent" android:orientation="vertical">
 
-<TextView android:text="TextView01" android:id="@+id/TextView01" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
-<TableLayout android:id="@+id/TableLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" android:shrinkColumns="0,1,2,3" android:stretchColumns="0,1,2,3">
+<TextView android:text="TextView01" android:id="@+id/TextView01"
+	android:layout_width="fill_parent" android:layout_margin="5dip"
+	android:layout_height="fill_parent" android:layout_weight="9" 
+	android:textSize="14pt" android:textStyle="bold" android:typeface="monospace"
+	android:layout_gravity="right" android:gravity="right|center_vertical"
+	/>
+<TableLayout android:id="@+id/TableLayout01" android:layout_width="fill_parent" android:shrinkColumns="0,1,2,3" android:stretchColumns="0,1,2,3" android:layout_height="fill_parent" android:layout_weight="2">
 
-<TableRow >
-<Button android:text="@string/Button_7" android:id="@+id/Button_7"></Button>
-<Button android:text="@string/Button_8" android:id="@+id/Button_8"></Button>
-<Button android:text="@string/Button_9" android:id="@+id/Button_9"></Button>
-<Button android:text="@string/Button_minus" android:id="@+id/Button_minus"></Button>
+<TableRow android:layout_height="fill_parent" android:layout_weight="1">
+<Button android:text="@string/Button_7" android:id="@+id/Button_7" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_8" android:id="@+id/Button_8" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_9" android:id="@+id/Button_9" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_minus" android:id="@+id/Button_minus" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
 </TableRow>
-<TableRow >
-<Button android:text="@string/Button_4" android:id="@+id/Button_4"></Button>
-<Button android:text="@string/Button_5" android:id="@+id/Button_5"></Button>
-<Button android:text="@string/Button_6" android:id="@+id/Button_6"></Button>
-<Button android:text="@string/Button_plus" android:id="@+id/Button_plus"></Button>
+<TableRow android:layout_weight="1">
+<Button android:text="@string/Button_4" android:id="@+id/Button_4" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_5" android:id="@+id/Button_5" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_6" android:id="@+id/Button_6" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_plus" android:id="@+id/Button_plus" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
 </TableRow>
-<TableRow >
-<Button android:text="@string/Button_1" android:id="@+id/Button_1"></Button>
-<Button android:text="@string/Button_2" android:id="@+id/Button_2"></Button>
-<Button android:text="@string/Button_3" android:id="@+id/Button_3"></Button>
-<Button android:text="@string/Button_equals" android:id="@+id/Button_equals"></Button>
+<TableRow android:layout_weight="1">
+<Button android:text="@string/Button_1" android:id="@+id/Button_1" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_2" android:id="@+id/Button_2" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_3" android:id="@+id/Button_3" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_equals" android:id="@+id/Button_equals" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
 </TableRow>
-
-
-<TableRow >
-<Button android:text="@string/Button_ac" android:id="@+id/Button_ac"></Button>
-<Button android:text="@string/Button_0" android:id="@+id/Button_0"></Button>
-<Button android:text="@string/Button_multiply" android:id="@+id/Button_multiply"></Button>
-<Button android:text="@string/Button_divide" android:id="@+id/Button_divide"></Button>
+<TableRow android:layout_weight="1">
+<Button android:text="@string/Button_ac" android:id="@+id/Button_ac" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_0" android:id="@+id/Button_0" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_multiply" android:id="@+id/Button_multiply" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
+<Button android:text="@string/Button_divide" android:id="@+id/Button_divide" android:layout_height="fill_parent" android:layout_width="wrap_content"/>
 </TableRow>
 
 <!-- 
 <TableRow >
-<Button android:text="@string/Button_m" android:id="@+id/Button17"></Button>
-<Button android:text="@string/Button_mc" android:id="@+id/Button18"></Button>
-<Button android:text="@string/Button_c" android:id="@+id/Button20"></Button>
-<Button android:text="@string/Button_decimal" android:id="@+id/Button16"></Button>
+<Button android:text="@string/Button_m" android:id="@+id/Button17"/>
+<Button android:text="@string/Button_mc" android:id="@+id/Button18"/>
+<Button android:text="@string/Button_c" android:id="@+id/Button20"/>
+<Button android:text="@string/Button_decimal" android:id="@+id/Button16"/>
 </TableRow>
 -->
 </TableLayout>
