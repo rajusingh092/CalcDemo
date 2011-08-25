@@ -69,7 +69,7 @@ public class State {
 	
 	public void number(int number) {
 		if(currentState == IOState.DISPLAY_RESULT){
-			currentState = IOState.INPUT_CURRENT;
+			clear();
 		}
 		inputted = true;
 		double num;
@@ -86,6 +86,7 @@ public class State {
 		if(currentState == IOState.INPUT_ACCU){
 			accu = num;
 		}else{
+			currentState = IOState.INPUT_CURRENT;
 			current = num;
 		}
 	}
@@ -94,6 +95,9 @@ public class State {
 		if(currentState == IOState.DISPLAY_RESULT || currentState == IOState.INPUT_ACCU){
 			res = String.valueOf(accu);
 		}
+		
+		res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + res;
+		
 		return res;
 	}
 	public void clear() {
@@ -106,8 +110,7 @@ public class State {
 	public void equal() {
 		calculateResult();
 		currentOp = Operation.NONE;
-		currentState= IOState.INPUT_ACCU;
-		current = 0;
+		currentState= IOState.DISPLAY_RESULT;
 	}
 
 }
