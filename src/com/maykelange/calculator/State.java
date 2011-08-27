@@ -23,12 +23,14 @@ public class State {
 		return currentOp;
 	}
 	public void setCurrentOp(Operation currentOp) {
-
-		if (accu != null && this.currentOp != null ){
-			calculateResult();
-		}else{
-			accu = Double.valueOf(current);
-			current = 0;
+		
+		if (currentState == IOState.INPUTTING){
+			if (accu != null && this.currentOp != null ){
+				calculateResult();
+			}else{
+				accu = Double.valueOf(current);
+				current = 0;
+			}
 		}
 		this.currentOp = currentOp;
 		
@@ -77,7 +79,7 @@ public class State {
 		}else{
 			res = d.toString();
 		}
-//		String res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + d;
+		res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + d;
 		
 		return res;
 	}
