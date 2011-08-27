@@ -79,7 +79,7 @@ public class State {
 		}else{
 			res = d.toString();
 		}
-		res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + d;
+//		res = currentState + " - " + currentOp +" - "+ accu + " - " + current + " - " + d;
 		
 		return res;
 	}
