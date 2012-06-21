@@ -1,6 +1,11 @@
 package com.maykelange.calculator;
 
-public class State {
+import java.io.Serializable;
+
+public class State implements Serializable {
+	
+	/**	 *	 */
+	private static final long serialVersionUID = -8836748473108140580L;
 	
 	public enum Operation {
 		PLUS,
@@ -107,5 +112,7 @@ public class State {
 		current = getCurrentDisplayValue();
 		
 	}
+	
+	
 
 }

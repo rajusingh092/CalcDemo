@@ -1,7 +1,7 @@
 package com.maykelange.calculator;
 
 
-import com.maykelange.calculator.R;
+import java.io.Serializable;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -62,6 +62,24 @@ public class MyCal extends Activity {
 		});
         
 		textView.setText(s.getDisplay());
+    }
+    
+    
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+    	savedInstanceState.putSerializable("STATE", s);
+    }
+    
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+    	Serializable serializable = savedInstanceState.getSerializable("STATE");
+    	if(serializable!= null){
+    		s = (State) serializable;
+    	}
+    }
+    
+    public void onPause(){
+    	 super.onPause();
     }
 
 }
